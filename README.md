@@ -57,8 +57,9 @@ yarn pack
 import Client from "../src/client.js";
 import * as request from '../src/request/index.js';
 
-const accessKeyID = ""
-const accessKeySecret = ""
+const accessKeyID = "";
+const accessKeySecret = "";
+const product = 'sslcom_dv_flex';
 
 const client = new Client(accessKeyID, accessKeySecret);
 
@@ -74,7 +75,7 @@ console.log("product_list", resp, resp?.data?.products);
 
 // 证书下单
 req = new request.CertificateCreateRequest();
-req.product_id = "sectigo_dv_flex";
+req.product_id = product;
 req.period = "annually";
 req.csr = csr;
 req.unique_id = (Math.random() + 1).toString(36).substring(2);

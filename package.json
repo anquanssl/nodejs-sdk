@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test/"
+    "test": "openssl req -new -out test/csr/example.csr -keyout test/csr/example.key -config test/csr/csr_config.cnf && node test/"
   },
   "author": "",
   "type": "module",

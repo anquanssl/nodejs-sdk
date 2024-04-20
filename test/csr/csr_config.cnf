@@ -1,0 +1,18 @@
+[req]
+default_bits = 2048
+prompt = no
+encrypt_key = no
+distinguished_name = dn
+req_extensions = req_ext
+x509_extensions = v3_ca
+
+[dn]
+C = US
+ST = New York
+L = New York City
+O = Example Company
+OU = IT Department
+CN = example.com
+
+[req_ext]
+keyUsage = digitalSignature, keyEncipherment
