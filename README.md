@@ -17,6 +17,7 @@ AnquanSSL, aka "Security SSL", also known as "安全 SSL" in Mandarin, founded i
 - [AnquanSSL PHP SDK](https://github.com/anquanssl/sdk)
 - [AnquanSSL Python SDK](https://github.com/anquanssl/python-sdk)
 - [AnquanSSL NodeJS SDK](https://github.com/anquanssl/nodejs-sdk)
+- [AnquanSSL Golang SDK](https://github.com/anquanssl/golang-sdk)
 - [AnquanSSL Java SDK](https://github.com/anquanssl/java-sdk)
 
 
