@@ -5,3 +5,4 @@ import * as request from "anquanssl/src/request/index.js";
 
 
 export { Client, Product, Order, request };
+export default Client;

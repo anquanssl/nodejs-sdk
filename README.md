@@ -23,40 +23,22 @@ AnquanSSL, aka "Security SSL", also known as "安全 SSL" in Mandarin, founded i
 
 ## 安装
 
-```bash
-npm i
-```
+install via NPM
 
 ```bash
-yarn
+npm i anquanssl
 ```
 
-## 测试
+or Yarn
 
 ```bash
-npm test
+yarn add anquanssl
 ```
-
-```bash
-yarn test
-```
-
-## 打包
-
-```bash
-npm pack
-```
-
-```bash
-yarn pack
-```
-
 
 ## 使用
 
 ```javascript
-import Client from "../src/client.js";
-import * as request from '../src/request/index.js';
+import Client, {request} from 'anquanssl';
 
 const accessKeyID = "";
 const accessKeySecret = "";
@@ -79,7 +61,7 @@ req = new request.CertificateCreateRequest();
 req.product_id = product;
 req.period = "annually";
 req.csr = csr;
-req.unique_id = (Math.random() + 1).toString(36).substring(2);
+req.unique_id = (Math.random() + 1).toString(36).substring(2); // 建议使用本地业务订单号拼接重签名操作次数
 req.contact_email = "email@test.com";
 req.domain_dcv = {
     "domain1.com": "dns",
@@ -92,13 +74,13 @@ if (!resp.success) {
     process.exit(1);
 }
 console.log("certificate_create", resp);
-const service_id = resp.data.service_id;
+const service_id = resp.data.service_id; // 下单成功证书流水号
 
 
 // 证书重签接口
 req = new request.CertificateReissueRequest();
 req.service_id = service_id;
-req.unique_id = (Math.random() + 1).toString(36).substring(2);
+req.unique_id = (Math.random() + 1).toString(36).substring(2); // 建议使用本地业务订单号拼接重签名操作次数
 req.csr = csr;
 req.contact_email = 'email@test.com';
 req.domain_dcv = {
