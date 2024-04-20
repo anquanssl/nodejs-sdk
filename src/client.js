@@ -7,7 +7,7 @@ import http_build_query from "js-http-build-query";
 const ORIGIN_API = "https://api.orion.pki.plus/api/v1"
 
 const sign = (baseString, accessKeySecret) => {
-    console.log("baseString:", baseString);
+    // console.log("baseString:", baseString);
     const hmac = createHmac('sha256', accessKeySecret);
     const digest = hmac.update(baseString).digest('base64');
     const encodedDigest = Buffer.from(digest).toString('utf-8');
@@ -69,7 +69,7 @@ export default class Client {
         });
         url = this.apiOrigin + uri + '?' + http_build_query(_query).replace(/\%20/g, '+').replace(/\*/g, '%2A');
 
-        console.log(url, body);
+        // console.log(url, body);
 
         return fetch(url, {
             method: method,
