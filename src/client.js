@@ -60,14 +60,14 @@ export default class Client {
         });
 
         let url = this.apiOrigin + uri;
-        let signature = sign(new URL(url).pathname + '?' + http_build_query(_parameters).replace(/\%20/g, '+').replace(/\*/g, '%2A'), this.accessKeySecret);
+        let signature = sign(new URL(url).pathname + '?' + http_build_query(_parameters), this.accessKeySecret);
         query.push(["sign", signature]);
         query.sort();
         let _query = {};
         query.forEach(([key, value]) => {
             _query[key] = value;
         });
-        url = this.apiOrigin + uri + '?' + http_build_query(_query).replace(/\%20/g, '+').replace(/\*/g, '%2A');
+        url = this.apiOrigin + uri + '?' + http_build_query(_query);
 
         // console.log(url, body);
 
