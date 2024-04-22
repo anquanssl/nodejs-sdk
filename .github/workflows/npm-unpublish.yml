@@ -1,0 +1,25 @@
+name: Node.js package unpublish when delete a release
+
+on:
+  release:
+    types: [deleted]
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - run: |
+          git config --global user.email "contact@keymatic.net"
+          git config --global user.name "AnquanSSL Team"
+
+      - run: |
+          git tag -d ${{  github.ref_name }}
+          npm unpublish ${{  github.ref_name }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
