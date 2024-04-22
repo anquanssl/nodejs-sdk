@@ -2,7 +2,7 @@ import fetch from "node-fetch"
 import { createHmac, randomUUID } from 'node:crypto';
 import Order from "./resource/order.js";
 import Product from "./resource/product.js";
-import http_build_query from "js-http-build-query";
+import http_build_query from "./util/http_build_query.js";
 
 const ORIGIN_API = "https://api.orion.pki.plus/api/v1"
 
