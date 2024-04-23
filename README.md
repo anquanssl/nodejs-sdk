@@ -9,7 +9,7 @@ AnquanSSL, aka "Security SSL", also known as "安全 SSL" in Mandarin, founded i
 
 [获取](https://www.anquanssl.com/dashboard/api-credentials) `AccessKey` 秘钥对.
 
-此SDK包仅面向开发者提供支持，若您是分销商，您可以需要:
+此SDK包仅面向开发者提供支持，若您是分销商，您可能需要:
 - [AnquanSSL Module for WHMCS]()
 - [AnquanSSL Module for idcSmart]()
 
