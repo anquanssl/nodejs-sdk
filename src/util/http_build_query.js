@@ -1,4 +1,4 @@
-export default (data, prefix) => {
+const http_build_query = (data, prefix) => {
     if (typeof (data) === 'undefined' || typeof (data) !== 'object') return data
     const _encodeURIComponent = (str) => {
         const map = {
@@ -37,7 +37,7 @@ export default (data, prefix) => {
     
         // return str's char replacing in map if exists, origin char if not exists    
         return 'string' != typeof str ? str : str.replace(/[\s\S]/g, function (c) {
-            return map[c] || c;
+            return map[c] || encodeURIComponent(c);
         });
     };
 
@@ -47,9 +47,11 @@ export default (data, prefix) => {
         if (data.hasOwnProperty(param)) {
             let key = prefix ? prefix + "[" + param + "]" : param,
                 value = data[param];
-            query.push(typeof v == "object" ? serialize(value, key) : _encodeURIComponent(key) + "=" + _encodeURIComponent(value));
+            query.push(typeof value == "object" ? http_build_query(value, key) : _encodeURIComponent(key) + "=" + _encodeURIComponent(value));
         }
     }
 
     return query.join('&')
-}
+};
+
+export default http_build_query;
